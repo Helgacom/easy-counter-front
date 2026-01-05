@@ -1,0 +1,28 @@
+.navbar {
+  // background-color: dimgray;
+  background-color: #4f779f;
+}
+
+.nav-link {
+  color: #e1ecf8; /* Цвет ссылок */
+}
+
+.navbar-brand {
+  //color: #da60ea; /* Цвет ссылок */
+  color: #e1ecf8;
+}
+.nav-link:hover {
+  color: #2a8ffd; /* Цвет ссылок при наведении */
+}
+
+.spacer {
+  flex: 1 1 auto;
+}
+
+.mat-toolbar {
+  background: dimgray;
+  color: #e1ecf8;
+  font-family: "Times New Roman", serif;
+  font-weight: bold;
+  font-size: 24px;
+}
