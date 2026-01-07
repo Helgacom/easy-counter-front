@@ -23,11 +23,38 @@ html, body, .outer-container {
   overflow: auto;
 }
 
-h4 {
+h4, h3, h5, h6, label {
   color: #2c3e50;
   font-family: "Times New Roman", sans-serif;
   font-weight: bold;
   margin-bottom: 3.5px;
+}
+
+angular2-multiselect, input {
+  color: #2c3e50;
+  font-family: "Times New Roman", sans-serif;
+  font-weight: bold;
+  margin-bottom: 3.5px;
+}
+
+.card {
+  box-shadow: rgba(0, 0, 0, 0.1) 0px 10px 15px -3px, rgba(0, 0, 0, 0.05) 0px 4px 6px -2px !important;
+}
+
+.form-floating input[type="number"]::-webkit-inner-spin-button,
+.form-floating input[type="number"]::-webkit-outer-spin-button {
+  appearance: none;
+  margin: 0;
+}
+
+.table td a {
+  color: inherit;
+  text-decoration: underline;
+}
+
+.table td a:hover {
+  cursor: pointer;
+  color: #0d6efd;
 }
 
 

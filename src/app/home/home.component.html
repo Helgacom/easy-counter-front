@@ -1,58 +1,102 @@
 <div class="outer-container">
   <div class="body">
-    <h4>Рассчет калорийности продуктов</h4>
+    <h3>Сервис для анализа продуктов</h3>
 
-    <form (ngSubmit)="addProduct()">
-      <div>
-        <label>Выберите продукт:</label>
-        <select
-          class="form-select w-25"
-          [(ngModel)]="selectedProduct"
-          id="product" name="product" required>
-          <option *ngFor="let product of products" [ngValue]="product">{{ product.name }}</option>
-        </select>
+    <div class="container my-5">
+      <div class="card shadow-lg rounded border-0 bg-light" style="width: 66%; max-width: 100%">
+        <div class="card-body">
+          <h5 class="mb-4">Расчёт калорийности продуктов</h5>
+
+          <div *ngIf="errorMsg" class="alert alert-danger">{{ errorMsg }}</div>
+
+          <div *ngIf="isLoading" class="text-center mb-3">
+            <span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>
+            Загрузка продуктов...
+          </div>
+
+          <form (ngSubmit)="addProduct()" class="mb-4">
+            <div class="form-floating mb-3 position-relative">
+              <div class="form-control">
+                <div id="product">
+                  <angular2-multiselect [data]="products"
+                                        [(ngModel)]="selectedProduct"
+                                        [settings]="dropDownSettingsProduct"
+                                        [ngModelOptions]="{standalone: true}"
+                                        (onDeSelectAll)="productDeselected()"
+                                        (onDeSelect)="productDeselected()"
+                                        (onSelect)="productSelected($event)">
+                  </angular2-multiselect>
+                </div>
+
+              </div>
+            </div>
+
+            <div class="form-floating mb-3">
+              <input class="form-control"
+                     type="number"
+                     id="weight"
+                     placeholder="Вес в граммах"
+                     [(ngModel)]="weight"
+                     name="weight"/>
+              <label for="weight">Вес в граммах</label>
+              <div *ngIf="productForm.get('weight').invalid && productForm.get('weight').touched" class="text-danger">
+                Введите вес > 0
+              </div>
+            </div>
+
+            <button
+              type="submit"
+              class="btn btn-outline-info btn-sm">
+              Добавить продукт
+            </button>
+          </form>
+
+          <h6>{{selectedItems.length === 0 ? "Нет выбранных продуктов. Добавьте продукт через форму выше." : "Выбранные продукты:"}}</h6>
+          <table *ngIf="selectedItems.length > 0" class="table table-striped mt-3">
+            <thead class="table-secondary">
+            <tr>
+              <th scope="col">№</th>
+              <th scope="col">Название</th>
+              <th scope="col">Вес (г)</th>
+              <th scope="col">Белки</th>
+              <th scope="col">Жиры</th>
+              <th scope="col">Углеводы</th>
+              <th scope="col">Калорийность</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr *ngFor="let item of selectedItems; let idx = index">
+              <th scope="row">{{ idx + 1 }}</th>
+              <td>
+                <a (click)="openModalProduct(item.product.name)" href="#">{{ item.product.name }}</a>
+              </td>
+              <td>{{ item.weight }}</td>
+              <td>{{ (item.product.protein * item.weight) / 100 | number:'1.2-2' }}</td>
+              <td>{{ (item.product.fat * item.weight) / 100 | number:'1.2-2' }}</td>
+              <td>{{ (item.product.carb * item.weight) / 100 | number:'1.2-2' }}</td>
+              <td>{{ (item.product.caloriesPer100g * item.weight) / 100 | number:'1.2-2' }} ккал</td>
+            </tr>
+            </tbody>
+          </table>
+
+          <div *ngIf="selectedItems.length === 0" class="text-muted text-center my-6">
+
+          </div>
+
+          <div class="d-flex justify-content-between align-items-center mt-4">
+            <button
+              class="btn btn-primary"
+              (click)="calculateTotalCalories()"
+              [disabled]="selectedItems.length === 0">
+              Рассчитать калорийность
+            </button>
+            <h5 *ngIf="totalCalories !== null">
+              Общая калорийность: {{ totalCalories | number:'1.2-2' }} ккал
+            </h5>
+          </div>
+        </div>
       </div>
-      <div>
-        <label for="weight">Вес в граммах:</label>
-        <input class="form-control w-25" type="number" id="weight" [(ngModel)]="weight" name="weight" required min="1" />
-      </div>
-      <button type="submit" class="btn btn-outline-primary btn-sm">Добавить продукт</button>
-    </form>
-
-
-    <h4>Выбранные продукты:</h4>
-    <ul>
-      <li *ngFor="let item of selectedItems">
-        {{ item.product.name }} - {{ item.weight }}g
-      </li>
-    </ul>
-    <div class="container">
-      <table class="table caption-top">
-        <caption>Список выбранных продуктов</caption>
-        <thead>
-        <tr class="table-secondary">
-          <th scope="col">#</th>
-          <th scope="col">Продукт</th>
-          <th scope="col">Вес</th>
-          <th scope="col">Калорийность на 100 г</th>
-        </tr>
-        </thead>
-        <tbody>
-        <tr *ngFor="let item of selectedItems let idx = index">
-          <th scope="row">{{idx + 1}}</th>
-          <td>
-            <a (click)=openModalProduct(item.product.name) href="#">{{item.product.name}}</a>
-          </td>
-          <td>{{item.weight}}</td>
-          <td>{{item.product.kkal}}</td>
-        </tr>
-
-        </tbody>
-      </table>
     </div>
-    <button class="btn btn-primary btn-sm"
-            (click)="calculateTotalCalories()">Рассчитать калорийность</button>
-
-    <h4 *ngIf="totalCalories !== null">Общая калорийность: {{ totalCalories }} калорий</h4>
   </div>
 </div>
+

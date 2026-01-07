@@ -1,6 +1,6 @@
 <p>О продукте</p>
-<div *ngIf="product.details">{{product.details}}</div>
-<div *ngIf="product.details == product.name">Описание продукта еще не добавлено</div>
+<div *ngIf="product.description">{{product.description}}</div>
+<div *ngIf="product.description == product.name">Описание продукта еще не добавлено</div>
 <div>
   <button class="btn btn-primary btn-sm"
           (click)="closeModalProduct()">Закрыть окно</button>

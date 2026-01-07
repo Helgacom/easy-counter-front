@@ -13,6 +13,8 @@ import {ProductDetailsComponent} from './product-details/product-details.compone
 import {HomeComponent} from './home/home.component';
 import {HttpClientModule} from '@angular/common/http';
 import { ChatComponent } from './chat/chat.component';
+import { AngularMultiSelectModule } from 'angular2-multiselect-dropdown';
+import {CommonModule} from '@angular/common';
 
 @NgModule({
   declarations: [
@@ -31,6 +33,8 @@ import { ChatComponent } from './chat/chat.component';
     AppRoutingModule,
     FormsModule,
     HttpClientModule,
+    AngularMultiSelectModule,
+    CommonModule,
     ReactiveFormsModule
   ],
   providers: [],

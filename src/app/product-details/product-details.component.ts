@@ -1,5 +1,5 @@
 import {Component, OnInit} from '@angular/core';
-import {Product} from '../model/product';
+import {ProductModel} from '../model/product.model';
 import {HttpService} from '../service/http.service';
 import {NgbModal} from '@ng-bootstrap/ng-bootstrap';
 
@@ -10,7 +10,7 @@ import {NgbModal} from '@ng-bootstrap/ng-bootstrap';
 })
 export class ProductDetailsComponent implements OnInit {
 
-  product: Product | null;
+  product: ProductModel | null;
 
   constructor(
     private httpService: HttpService,
@@ -19,10 +19,10 @@ export class ProductDetailsComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  showDetails = (product: Product) => {
-    if (!product.details || product.details === '') {
+  showDetails = (product: ProductModel) => {
+    if (!product.description || product.description === '') {
       this.httpService.getDetails(product.name).subscribe(
-        response => this.product.details = response
+        response => this.product.description = response
       );
     }
   }
