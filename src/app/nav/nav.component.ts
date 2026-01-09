@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 
 @Component({
   selector: 'app-nav',
@@ -7,11 +7,18 @@ import { Component, OnInit } from '@angular/core';
 })
 export class NavComponent implements OnInit {
 
+  isNavbarCollapsed = true;
+
   constructor() { }
 
   ngOnInit(): void {
   }
 
-  collapseNavbar = () => {
+  collapseNavbar(): void {
+    this.isNavbarCollapsed = true;
+  }
+
+  onToggleHome = () => {
+    console.log('Авторизация пользователя - заглушка');
   }
 }

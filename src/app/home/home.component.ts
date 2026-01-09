@@ -2,7 +2,7 @@ import {Component, OnInit} from '@angular/core';
 import {FormControl, FormGroup, Validators} from '@angular/forms';
 import {IProduct} from '../model/product.model';
 import {NgbModalRef} from '@ng-bootstrap/ng-bootstrap';
-import {ProductModalService} from '../product-modal.service';
+import {ProductModalService} from '../product/product-modal.service';
 import {ProductService} from '../product/product.service';
 import {DropdownSettings} from 'angular2-multiselect-dropdown/lib/multiselect.interface';
 import {DropDownSettingsModel} from '../model/drop-down-settings.model';
@@ -27,7 +27,7 @@ export class HomeComponent implements OnInit {
   isLoading = false;
   errorMsg: string | null = null;
 
-  selectedProduct: IProduct | null = null;
+  selectedProduct: IProduct[] | null = null;
   weight = 0;
 
 
@@ -88,8 +88,9 @@ export class HomeComponent implements OnInit {
     this.productForm.patchValue({
       weight: this.weight
     });
+    // if (!this.productForm.invalid) {}
     console.log(this.productForm);
-    const item = new Item(this.selectedProduct, this.weight, true);
+    const item = new Item(this.selectedProduct[0], this.weight, true);
     this.selectedItems.push(item);
     console.log(this.selectedItems.length);
     this.selectedProduct = null;
@@ -123,10 +124,15 @@ export class HomeComponent implements OnInit {
   }
 
   productSelected(event: IProduct): void {
-    this.selectedProduct = event;
+    this.selectedProduct[0] = event;
     this.productForm.patchValue({
       product: this.selectedProduct
     });
-    console.log('Выбран продукт:', this.selectedProduct.name);
+    console.log('Выбран продукт:', this.selectedProduct[0].name);
+  }
+
+  clearForm(): void {
+    console.log('Обновление страницы пользователем');
+    window.location.reload();
   }
 }

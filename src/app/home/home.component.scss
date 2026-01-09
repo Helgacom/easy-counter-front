@@ -1,4 +1,5 @@
 html, body, .outer-container {
+  font-family: "Times New Roman", sans-serif;
   height: 100%;
   margin: 0;
   padding: 0;
@@ -25,15 +26,13 @@ html, body, .outer-container {
 
 h4, h3, h5, h6, label {
   color: #2c3e50;
-  font-family: "Times New Roman", sans-serif;
   font-weight: bold;
   margin-bottom: 3.5px;
 }
 
 angular2-multiselect, input {
   color: #2c3e50;
-  font-family: "Times New Roman", sans-serif;
-  font-weight: bold;
+  font-weight: normal;
   margin-bottom: 3.5px;
 }
 
@@ -48,13 +47,19 @@ angular2-multiselect, input {
 }
 
 .table td a {
-  color: inherit;
   text-decoration: underline;
+  color: #497ab3;
 }
 
 .table td a:hover {
   cursor: pointer;
   color: #0d6efd;
+}
+
+::placeholder {
+  font-style: italic;
+  font-size: 0.9em;
+  color: #9a9a9a;
 }
 
 

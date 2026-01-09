@@ -12,9 +12,22 @@ import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {ProductDetailsComponent} from './product-details/product-details.component';
 import {HomeComponent} from './home/home.component';
 import {HttpClientModule} from '@angular/common/http';
-import { ChatComponent } from './chat/chat.component';
-import { AngularMultiSelectModule } from 'angular2-multiselect-dropdown';
+import {ChatComponent} from './chat/chat.component';
+import {AngularMultiSelectModule} from 'angular2-multiselect-dropdown';
 import {CommonModule} from '@angular/common';
+import {RouterModule} from '@angular/router';
+import {ProductComponent} from './product/product.component';
+import {ProductEditComponent} from './product/edit-product.component';
+import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
+import {MatToolbarModule} from '@angular/material/toolbar';
+import {MatTooltipModule} from '@angular/material/tooltip';
+import {MatInputModule} from '@angular/material/input';
+import {MatPaginatorModule} from '@angular/material/paginator';
+import {MatSortModule} from '@angular/material/sort';
+import {MatTableModule} from '@angular/material/table';
+import {MatIconModule} from '@angular/material/icon';
+import {MatMenuModule} from '@angular/material/menu';
+import {MatButtonModule} from '@angular/material/button';
 
 @NgModule({
   declarations: [
@@ -25,6 +38,8 @@ import {CommonModule} from '@angular/common';
     ServicesComponent,
     FooterComponent,
     ProductDetailsComponent,
+    ProductComponent,
+    ProductEditComponent,
     ChatComponent
   ],
   imports: [
@@ -35,13 +50,23 @@ import {CommonModule} from '@angular/common';
     HttpClientModule,
     AngularMultiSelectModule,
     CommonModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    MatToolbarModule,
+    MatTableModule,
+    MatSortModule,
+    MatPaginatorModule,
+    MatInputModule,
+    MatTooltipModule,
+    BrowserAnimationsModule,
+    RouterModule,
+    MatIconModule,
+    MatMenuModule,
+    MatButtonModule
   ],
   providers: [],
   bootstrap: [
     AppComponent,
-    NavComponent,
-    HomeComponent
+    NavComponent
   ]
 })
 export class AppModule { }

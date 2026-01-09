@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import {NgbModal, NgbModalRef} from '@ng-bootstrap/ng-bootstrap';
-import {ProductDetailsComponent} from './product-details/product-details.component';
+import {ProductDetailsComponent} from '../product-details/product-details.component';
 
 @Injectable({
   providedIn: 'root'

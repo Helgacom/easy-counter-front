@@ -1,9 +1,8 @@
 <div class="outer-container">
   <div class="body">
-    <h3>Сервис для анализа продуктов</h3>
 
     <div class="container my-5">
-      <div class="card shadow-lg rounded border-0 bg-light" style="width: 66%; max-width: 100%">
+      <div class="card shadow-lg rounded border-0 bg-light" style="width: 66%; max-width: 100%; margin-left: 10px;">
         <div class="card-body">
           <h5 class="mb-4">Расчёт калорийности продуктов</h5>
 
@@ -20,8 +19,8 @@
                 <div id="product">
                   <angular2-multiselect [data]="products"
                                         [(ngModel)]="selectedProduct"
-                                        [settings]="dropDownSettingsProduct"
                                         [ngModelOptions]="{standalone: true}"
+                                        [settings]="dropDownSettingsProduct"
                                         (onDeSelectAll)="productDeselected()"
                                         (onDeSelect)="productDeselected()"
                                         (onSelect)="productSelected($event)">
@@ -31,7 +30,7 @@
               </div>
             </div>
 
-            <div class="form-floating mb-3">
+            <div *ngIf="selectedProduct">
               <input class="form-control"
                      type="number"
                      id="weight"
@@ -46,7 +45,7 @@
 
             <button
               type="submit"
-              class="btn btn-outline-info btn-sm">
+              class="btn btn-outline-secondary btn-sm">
               Добавить продукт
             </button>
           </form>
@@ -84,15 +83,24 @@
           </div>
 
           <div class="d-flex justify-content-between align-items-center mt-4">
-            <button
-              class="btn btn-primary"
-              (click)="calculateTotalCalories()"
-              [disabled]="selectedItems.length === 0">
-              Рассчитать калорийность
-            </button>
+            <div style="display:flex; gap: 16px; margin-bottom: 16px;">
+              <button
+                class="btn btn-primary btn-sm"
+                (click)="calculateTotalCalories()"
+                [disabled]="selectedItems.length === 0">
+                Рассчитать калорийность
+              </button>
+              <button
+                class="btn btn-outline-info btn-sm"
+                (click)="clearForm()">
+                Сбросить форму
+              </button>
+            </div>
+
             <h5 *ngIf="totalCalories !== null">
               Общая калорийность: {{ totalCalories | number:'1.2-2' }} ккал
             </h5>
+
           </div>
         </div>
       </div>

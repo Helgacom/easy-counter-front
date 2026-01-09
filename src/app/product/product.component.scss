@@ -1,0 +1,205 @@
+.outer-container {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  height: 100%;
+  background-color: #cccccc; // серый фон контейнера
+  box-sizing: border-box;
+  //padding-bottom: 50px;
+}
+
+.body {
+  background-color: #ffffff;
+  margin: 10px;
+  border-radius: 8px;
+  box-sizing: border-box;
+  padding: 16px;
+  overflow: auto;
+}
+
+.container {
+  position: relative;
+}
+
+.table-container {
+  //position: relative;
+  overflow: auto;
+  border-radius: 6px;
+  background-color: rgba(128, 128, 128, 0.8);
+  padding: 12px;
+  margin-top: 12px;
+  font-family: "Times New Roman", sans-serif;
+}
+
+table {
+  width: 100%;
+  margin-top: 16px;
+  border-radius: 4px;
+  border-collapse: separate;
+  background-color: rgb(133, 164, 197, 0.9);
+  color: white;
+  font-family: "Times New Roman", sans-serif;
+  //table-layout: fixed;
+}
+
+.mat-header-cell {
+  background-color: rgba(154, 175, 197, 0.9);
+  color: white;
+  font-size: 14px;
+  font-weight: bold;
+  //text-align: center;
+}
+
+.mat-cell {
+  background-color: rgb(225, 236, 248);
+  color: #2c3e50;
+  font-size: 14px;
+}
+
+::ng-deep .mat-paginator {
+  font-family: "Times New Roman", sans-serif;
+  background-color: rgba(154, 175, 197, 0.9);
+  font-size: 14px;
+  color: white;
+}
+
+::ng-deep .mat-form-field {
+  font-family: "Times New Roman", sans-serif;
+  color: white;
+  font-size: 14px;
+}
+
+::ng-deep .mat-select-panel {
+  font-family: "Times New Roman", sans-serif;
+  color: white;
+  background-color: rgba(154, 175, 197, 0.9);
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+::ng-deep .mat-option {
+  font-family: "Times New Roman", sans-serif;
+  color: white;
+}
+
+::ng-deep .mat-select {
+  font-family: "Times New Roman", sans-serif;
+  color: white;
+  background-color: rgba(154, 175, 197, 0.9);
+  border: 1px solid #ccc;
+  border-radius: 4px;
+
+  &.mat-focused {
+    color: white !important;
+  }
+}
+
+::ng-deep .mat-select-panel {
+  font-family: "Times New Roman", sans-serif;
+  color: white;
+  background-color: rgba(154, 175, 197, 0.9);
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+::ng-deep .mat-option {
+  font-family: "Times New Roman", sans-serif;
+  color: white;
+
+  &.mat-selected .mat-select-value {
+    color: white;
+    background-color: rgba(154, 175, 197, 0.9);
+  }
+
+  &:hover {
+    background-color: rgba(154, 175, 197, 0.7);
+    color: white;
+  }
+
+  &.mat-active {
+    color: white;
+    background-color: rgba(154, 175, 197, 0.9);
+  }
+}
+
+.loading-shade {
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 56px;
+  right: 0;
+  background: rgba(0, 0, 0, 0.15);
+  z-index: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+h4 {
+  color: #02478e;
+  font-family: "Times New Roman", sans-serif;
+  font-weight: bold;
+  margin-bottom: 3.5px;
+}
+
+.button {
+  margin-right: 10px;
+  background-color: rgba(181, 148, 205, 0.85);
+  color: white;
+  padding: 8px 16px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  text-decoration: none;
+  display: inline-block;
+  font-family: "Times New Roman", serif;
+}
+
+.button:hover {
+  background-color: rgba(161, 117, 205, 0.78);
+}
+
+html, body, .outer-container {
+  font-family: "Times New Roman", sans-serif;
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+.custom-input::-webkit-input-placeholder {
+  opacity: 1;
+  transition: opacity 0.3s ease-in-out;
+}
+
+.custom-input:focus::-webkit-input-placeholder,
+.custom-input::placeholder {
+  opacity: 0;
+}
+
+.custom-input:-ms-input-placeholder {
+  opacity: 1;
+  transition: opacity 0.3s ease-in-out;
+}
+
+.custom-input:focus:-ms-input-placeholder,
+.custom-input:-ms-input-placeholder {
+  opacity: 0;
+}
+
+.custom-input::-moz-placeholder {
+  opacity: 1;
+  transition: opacity 0.3s ease-in-out;
+}
+
+.custom-input:focus::-moz-placeholder,
+.custom-input::-moz-placeholder {
+  opacity: 0;
+}
+
+h3, h5, h6, label {
+  color: #2c3e50;
+  font-weight: bold;
+  margin-bottom: 3.5px;
+}

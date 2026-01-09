@@ -1,28 +1,53 @@
-.navbar {
-  // background-color: dimgray;
-  background-color: #4f779f;
-}
-
-.nav-link {
-  color: #e1ecf8; /* Цвет ссылок */
-}
-
-.navbar-brand {
-  //color: #da60ea; /* Цвет ссылок */
-  color: #e1ecf8;
-}
-.nav-link:hover {
-  color: #2a8ffd; /* Цвет ссылок при наведении */
-}
-
 .spacer {
   flex: 1 1 auto;
 }
 
 .mat-toolbar {
-  background: dimgray;
+  background-color: rgba(105, 105, 105, 0.9);
+  // background-color: #4f779f;
   color: #e1ecf8;
-  font-family: "Times New Roman", serif;
+  font-family: "Times New Roman", sans-serif;
   font-weight: bold;
-  font-size: 24px;
+  font-size: 16px;
 }
+
+::ng-deep .mat-menu-panel {
+  background-color: rgb(133, 164, 197);
+  font-size: 16px;
+  line-height: 1.2;
+  padding: 8px 0;
+  width: auto;
+}
+
+::ng-deep .mat-menu-item {
+  font-weight: bold;
+  font-family: "Times New Roman", sans-serif;
+  color: white;
+  padding-top: 2px;
+  padding-bottom: 2px;
+  line-height: 1.2;
+  //background-color: rgba(167, 140, 188);
+}
+
+.mat-button {
+  margin-right: 10px;
+  background-color: rgb(106, 152, 236);
+  color: white;
+  padding: 8px 16px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  text-decoration: none;
+  display: inline-block;
+  font-family: "Times New Roman", serif;
+}
+
+.mat-button:hover {
+  background-color: rgb(48, 105, 209);
+}
+
+
+
+
