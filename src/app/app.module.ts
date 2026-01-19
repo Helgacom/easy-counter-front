@@ -6,7 +6,6 @@ import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 import {NavComponent} from './nav/nav.component';
 import {AppRoutingModule} from './app-routing.module';
 import {AboutComponent} from './about/about.component';
-import {ServicesComponent} from './services/services.component';
 import {FooterComponent} from './footer/footer.component';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {ProductDetailsComponent} from './product-details/product-details.component';
@@ -28,6 +27,13 @@ import {MatTableModule} from '@angular/material/table';
 import {MatIconModule} from '@angular/material/icon';
 import {MatMenuModule} from '@angular/material/menu';
 import {MatButtonModule} from '@angular/material/button';
+import { RegisterComponent } from './register/register.component';
+import { LoginComponent } from './login/login.component';
+import {MatFormFieldModule} from '@angular/material/form-field';
+import {MatCardModule} from '@angular/material/card';
+import {MatDialogModule} from '@angular/material/dialog';
+import { AdminComponent } from './admin/admin.component';
+import {ToastrModule} from 'ngx-toastr';
 
 @NgModule({
   declarations: [
@@ -35,12 +41,14 @@ import {MatButtonModule} from '@angular/material/button';
     HomeComponent,
     NavComponent,
     AboutComponent,
-    ServicesComponent,
     FooterComponent,
     ProductDetailsComponent,
     ProductComponent,
     ProductEditComponent,
-    ChatComponent
+    ChatComponent,
+    RegisterComponent,
+    LoginComponent,
+    AdminComponent
   ],
   imports: [
     BrowserModule,
@@ -49,14 +57,19 @@ import {MatButtonModule} from '@angular/material/button';
     FormsModule,
     HttpClientModule,
     AngularMultiSelectModule,
+    ToastrModule.forRoot(),
     CommonModule,
     ReactiveFormsModule,
+    MatDialogModule,
     MatToolbarModule,
     MatTableModule,
     MatSortModule,
     MatPaginatorModule,
     MatInputModule,
     MatTooltipModule,
+    MatCardModule,
+    MatFormFieldModule,
+    MatButtonModule,
     BrowserAnimationsModule,
     RouterModule,
     MatIconModule,

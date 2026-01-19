@@ -88,20 +88,10 @@ export class HomeComponent implements OnInit {
     this.productForm.patchValue({
       weight: this.weight
     });
-    // if (!this.productForm.invalid) {}
-    console.log(this.productForm);
     const item = new Item(this.selectedProduct[0], this.weight, true);
     this.selectedItems.push(item);
-    console.log(this.selectedItems.length);
     this.selectedProduct = null;
     this.weight = null;
-  }
-
-  resetForm(): void {
-    this.productForm.patchValue({
-      product: null,
-      weight: null
-    });
   }
 
   calculateTotalCalories = () => {
@@ -113,7 +103,6 @@ export class HomeComponent implements OnInit {
   openModalProduct = (name: string) => {
     const product = this.selectedItems.find(
       el => el.product.name === name).product;
-    console.log(product.name);
     this.modalRef = this.productModalService.open();
     this.modalRef.componentInstance.product = product;
     this.modalRef.componentInstance.showDetails(product);

@@ -1,0 +1,55 @@
+<div class="modal-container">
+  <div class="modal-card">
+    <span class="close-icon" (click)="closeModal()">✕</span>
+    <h4>Регистрация</h4>
+    <form [formGroup]="registerForm" (ngSubmit)="submitForm()">
+
+      <div class="form-group">
+        <label class="form-label" for="username">Имя пользователя</label>
+        <input
+          id="username"
+          type="text"
+          formControlName="username"
+          class="form-input"
+          placeholder="Helgacom"
+        />
+      </div>
+
+      <div class="form-group">
+        <label class="form-label" for="email">Email</label>
+        <input
+          id="email"
+          type="email"
+          formControlName="email"
+          class="form-input"
+          placeholder="example@email.ru"
+        />
+      </div>
+
+      <div class="form-group">
+        <label class="form-label" for="password">Пароль</label>
+        <input
+          id="password"
+          type="password"
+          formControlName="password"
+          class="form-input"
+          placeholder="Введите пароль"
+        />
+      </div>
+
+      <button
+        type="submit"
+        class="button-primary"
+        [disabled]="registerForm.invalid"
+      >
+        Зарегистрироваться
+      </button>
+
+      <div class="link-container">
+        <a (click)="navigateToLogin()">Уже есть аккаунт? Войти</a>
+      </div>
+    </form>
+  </div>
+</div>
+
+

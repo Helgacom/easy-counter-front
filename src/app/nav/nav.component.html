@@ -1,5 +1,4 @@
-<mat-toolbar>
-
+<mat-toolbar color="primary">
   <span>EASY&FOOD</span>
   <span class="spacer"></span>
 
@@ -10,19 +9,20 @@
 
   <button mat-button
           aria-label="ADMIN"
-          routerLink="/admin">ADMIN
+          routerLink="/admin">Админ
   </button>
 
-  <button mat-button
+  <button *ngIf="!currentUser"
+          mat-button
           aria-label="LOGIN"
-          (click)="onToggleHome()">LOGIN
+          (click)="openLoginModal()">Войти
   </button>
+
+  <div *ngIf="currentUser">
+    <button mat-button
+            routerLink="/"
+            (click)="logout()">Выйти</button>
+    <span class="name">{{ currentUser.username }}</span>
+  </div>
 
 </mat-toolbar>
-
-
-
-
-
-
-
